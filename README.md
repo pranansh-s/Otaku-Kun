@@ -13,7 +13,8 @@ After that you are ready to use the app.
 There you go. As simple as that.
 
 # Images
-![Directory](./Screenshots/Screenshot (13).png)
+![Directory](Screenshots/Screenshot (13).png)
+
 
 # Languages
 * HTML
