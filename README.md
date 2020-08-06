@@ -7,7 +7,7 @@ After that you are ready to use the app.
 
 * Use the search bar to search for your favourite manga, if properly spelled you will be given a list of results to choose from.
 * After everything has loaded *(time varies for various internet connections)*, click on the card of the manga you want to download.
-* Then You can choose your required chapter to download and read offline, when needed.
+* Then you can choose the required chapter to download and read offline when needed.
 * Click on the **cogwheel** icon on the top left to change the download directory of the pdfs.
 
 * Refer to the images for more details
@@ -36,5 +36,5 @@ There you go. As simple as that.
 * fs
 
 # Note
-There might be some glitches or unknown errors, *as it was made on a weekend*.
-if there are please report them to me at the given <a href = "mailto: prananshsingh@gmail.com" target="_blank">Gmail</a>
+There might be some glitches or unknown errors, *(as it was made on a weekend*).
+if there are please report them to me at the given <a href = "mailto: prananshsingh@gmail.com" target="_blank">Gmail</a> to be updated
