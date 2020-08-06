@@ -34,3 +34,7 @@ There you go. As simple as that.
 * cheerio
 * html-pdf
 * fs
+
+# Note
+There might be some glitches or unknown errors, *as it was made on a weekend*.
+if there are please report them to me at the given <a href = "mailto: prananshsingh@gmail.com" target="_blank">Gmail</a>
