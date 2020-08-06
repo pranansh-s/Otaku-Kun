@@ -10,11 +10,16 @@ After that you are ready to use the app.
 * Then You can choose your required chapter to download and read offline, when needed.
 * Click on the **cogwheel** icon on the top left to change the download directory of the pdfs.
 
+* Refer to the images for more details
+
 There you go. As simple as that.
 
 # Images
-![Directory](Screenshots/Screenshot (13).png)
-
+<img src="Screenshots/Screenshot (13).png" alt="Directory Change"/>
+<img src="Screenshots/Screenshot (14).png" alt="Main Page"/>
+<img src="Screenshots/Screenshot (15).png" alt="Search Results"/>
+<img src="Screenshots/Screenshot (16).png" alt="Download Links"/>
+<img src="Screenshots/Screenshot (17).png" alt="Completed"/>
 
 # Languages
 * HTML
