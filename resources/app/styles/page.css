@@ -1,0 +1,118 @@
+body{
+  scroll-behavior: smooth;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: url('bg.png');
+
+  -webkit-user-select: none;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+}
+
+@keyframes myAnimation{
+  0%{
+    font-size: 300px;
+    opacity: 1;
+  }
+  100%{
+    font-size: 0px;
+    opacity: 0;
+    display: none;
+  }
+}
+
+h1{
+  position: absolute;
+  transform-origin: top;
+
+  font-size: 24vw;
+  width: 100%;
+
+  text-align: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #b4b4b4;
+
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+
+  color: white;
+  font-family: "Squada One";
+}
+
+
+.search{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 0.6s ease-in-out;
+}
+
+#s-bar{
+  box-shadow: 1px 1px 10px black;
+
+  color: transparent;
+  padding: 10px;
+  height: 45px;
+
+  text-transform: uppercase;
+  font-size: 18px;
+
+  border: none;
+  border-radius: 7px;
+
+  outline: none;
+  transition: width 0.4s ease-out;
+}
+
+.iconR{
+  position: absolute;
+  transition: 0.2s ease-in;
+  top: 0px;
+  right: 0px;
+  z-index: 3;
+  border-radius: 7px;
+
+  width: 60px;
+  height: 46px;
+  background-color: #9c1aff;
+}
+
+#s-bar::placeholder{
+  text-shadow: none;
+  color: white;
+}
+
+#s-bar:hover::placeholder {
+  color: grey;
+}
+
+#s-bar:hover{
+  text-shadow: none;
+  width: 500px;
+}
+
+.fa-cog{
+  z-index: 4;
+  color: white;
+  position: fixed;
+  margin: 1.6%;
+  text-shadow: 0px 2px 1px #000;
+
+  transition: 0.3s
+}
+
+.fa-cog:hover{
+  transform: rotate(90deg);
+  text-shadow: 2px 0px 1px #000;
+}
+
+.fa-search{
+  position: relative;
+  top: 15%;
+  left: 28%;
+  z-index: 5;
+  color: white;
+}

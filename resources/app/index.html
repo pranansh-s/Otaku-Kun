@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@515&family=Squada+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Text+Me+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/page.css">
+    <link rel="stylesheet" href="./styles/download.css">
+    <link rel="stylesheet" href="./styles/card.css">
+  </head>
+  <body>
+    <h1>OTAKU KUN</h1>
+    <i class="fa fa-cog fa-3x" id="selectPath"></i>
+    <div id="overlay">
+      <div id="dwn-page">
+        <i class="fa fa-times fa-3x" id="close"></i>
+        <div id="border">
+          <span id="name"></span>
+          <span id="content"></span>
+          <ul id="links"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="search" id="bar">
+      <input type="text" placeholder="Manga name" spellcheck="false" id="s-bar">
+      <div class="iconR" id="btn">
+        <i class="fa fa-search fa-2x"></i>
+      </div>
+    </div>
+    <nav>
+      <ul id="res"></ul>
+    </nav>
+  </body>
+  <script type="text/javascript" src="servers/page.js"></script>
+  <script type="text/javascript" src="servers/compiler.js"></script>
+</html>
