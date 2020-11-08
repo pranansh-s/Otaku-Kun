@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 #res{
   position: relative;
   width: 100vw;
@@ -36,7 +37,7 @@ span{
   float: right;
   top: 30%;
   font-size: 1.4vw;
-  font-family: 'Georgia';
+  font-family: 'Montserrat';
   float: left;
   left: 19vw;
   width: 40vw;

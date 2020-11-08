@@ -7,7 +7,7 @@ var s = document.getElementById('bar');
 var dwn_c = document.getElementById('dwn-page');
 var overlay = document.getElementById('overlay');
 
-const base_url = "https://mangakakalot.com/search/story/";
+const base_url = "http://manga-reader.fun/search?q=";
 var searched = false;
 
 sb.style.width = "60px";
@@ -31,7 +31,7 @@ function scrape(event){
     sb.style.width = "500px";
 
     //Strip input text to make url
-    var uri = sb.value.replace(/ /g, '_');
+    var uri = sb.value.replace(/ /g, '+');
 
     //Request a html page from link
     request(base_url+uri, (error, response, html) => {
@@ -40,7 +40,7 @@ function scrape(event){
         const $ = cheerio.load(html);
 
         //Get all results for search in a Node List
-        $('.story_item').each((i, el) => {
+        $('.list-truyen-item-wrap').each((i, el) => {
           //For each of items create a new Div to represent
           var newCard = document.createElement('li');
           document.getElementById('res').appendChild(newCard);
@@ -54,7 +54,7 @@ function scrape(event){
           newCard.append(rightP);
 
           //Add a name to the card
-          var mainH = $(el).find('.story_name');
+          var mainH = $(el).find('h3');
           var nameHolder = document.createElement('span');
           var name = mainH.text().trim().toUpperCase();
 
@@ -65,36 +65,27 @@ function scrape(event){
           nameHolder.innerText = nameC;
 
           //Add a description the card
-          var descr;
-          var l = mainH.find('a').attr('href');
-          request(l, (error, response, html) => {
-            if(!error && response.statusCode == 200){
-              var page = cheerio.load(html);
+          var descr = $(el).find('p').text();
+          descr = descr.replace("Read more", "");
+          var descrC = descr;
+          if(descrC.length >= 340) descrC = descrC.substring(0, 340) + "...";
+          descrC = descrC.trim().replace(/(\r\n|\n|\r)/gm," ");
 
-              descr = page('.panel-story-info-description').text().substring(15);
-              if(descr == "") descr = page('#noidungm').text();
-              var descrC = descr;
-              if(descrC.length >= 340) descrC = descr.substring(0, 340) + "...";
-              descrC = descrC.trim().replace(/(\r\n|\n|\r)/gm," ");
-
-              var descrH = document.createElement('span');
-              newCard.appendChild(descrH);
-              descrH.id = 'description';
-              descrH.innerText = descrC;
-            }
-          });
+          var descrH;
+          if(descrC.length == 0){
+            descrC = "No Information";
+            descrH = document.createElement('i');
+          }
+          else descrH = document.createElement('span');
+          newCard.appendChild(descrH);
+          descrH.innerText = descrC;
+          descrH.id = 'description';
 
           //Add extra details
-          $(el).find('span').each((x, det) => {
-            var details = document.createElement('span');
-            details.id = 'details';
-            newCard.appendChild(details);
-
-            details.innerText = det.children[0].data;
-            if(det.children[0].data[0] == 'A'){
-              details.innerText = details.innerText.split(',')[0];
-            }
-          })
+          var details = document.createElement('span');
+          details.id = 'details';
+          newCard.appendChild(details);
+          details.innerText = "Views: " + $(el).find('span').text();
 
           //Add a pfp to the card
           var imgL = $(el).find('img').attr('src');
@@ -104,6 +95,7 @@ function scrape(event){
           var img = imgHolder.appendChild(document.createElement('img'));
           imgHolder.appendChild(img);
 
+          if(imgL[0] == '/') imgL = "https:" + imgL;
           img.setAttribute('src', imgL);
 
           //Instance of download card
@@ -118,27 +110,26 @@ function scrape(event){
             dwn_c.querySelector('#name').innerText = name;
             dwn_c.querySelector('#content').innerText = descr;
 
+            var l = mainH.find('a').attr('href');
             request(l, (error, response, html) => {
               page = cheerio.load(html);
               var list = page('.chapter-list');
               if(list.length == 0) list = page('.row-content-chapter');
 
               list.find('a').each((x, ele) => {
-                if(x != 0){
-                  var link_chap = page(ele).attr('href');
-                  var name_chap = page(ele).text();
+                var link_chap = page(ele).attr('href');
+                var name_chap = page(ele).text();
 
-                  var newli = document.createElement('li');
-                  var ahref = document.createElement('a');
-                  document.getElementById('links').appendChild(newli);
-                  newli.appendChild(ahref);
-                  ahref.setAttribute('href', link_chap);
-                  ahref.innerText = name_chap;
+                var newli = document.createElement('li');
+                var ahref = document.createElement('a');
+                document.getElementById('links').appendChild(newli);
+                newli.appendChild(ahref);
+                ahref.setAttribute('href', link_chap);
+                ahref.innerText = name_chap;
 
-                  ahref.onclick = function(){
-                    pdf(link_chap, name_chap);
-                    return false;
-                  }
+                ahref.onclick = function(){
+                  pdf(link_chap, name_chap);
+                  return false;
                 }
               });
             });

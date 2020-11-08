@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 ::-webkit-scrollbar {
   display: none;
 }
@@ -97,7 +98,7 @@ a:link{
 }
 
 #content{
-  font-family: 'Georgia';
+  font-family: 'Montserrat';
   font-size: 18px;
 }
 

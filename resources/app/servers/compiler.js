@@ -1,5 +1,6 @@
 var cheerio = require('cheerio');
 var request = require('request');
+var path = require('path');
 
 const htPdf = require('html-pdf');
 const ejs = require('ejs');
@@ -41,21 +42,10 @@ function pdf(link, name){
   request(link, (error, response, html) => {
     if(!error && response.statusCode == 200){
       const dwn = cheerio.load(html);
+
       //Get all links to images in order
-      var res = dwn('.container-chapter-reader');
-      if(res.length == 0) res = dwn('.vung-doc');
-
-      var img = new Image();
-      res.find('img').each((i, el) => {
-        var lk = dwn(el).attr('src');
-        var check = lk.charAt(10);
-
-        var ind = 1;
-        if(check == '.') ind = 0;
-
-        lk = lk.substring(0, 9) + '8' + lk.substring(10 + ind, 19 + ind) + '8' + lk.substring(20 + 2 * ind);
-        pages.push(lk);
-      });
+      res = dwn('#arraydata').text();
+      pages = res.split(',');
 
       //Create a html file from it using ejs template
       fs.readFile('pdfTemplate.ejs', "utf-8", (error, content) => {
@@ -64,7 +54,7 @@ function pdf(link, name){
 
           //Convert html to valid pdf file
           htPdf.create(html, config).toStream((err, stream) => {
-            stream.pipe(fs.createWriteStream(pathDownload + "\\" + name.replace(/[<>:"/\|?*]/g,"") + '.pdf'));
+            stream.pipe(fs.createWriteStream(path.join(pathDownload, name.replace(/[<>:"/\|?*]/g,"") + '.pdf')));
             alert('Downloaded ' + name);
           });
         }
