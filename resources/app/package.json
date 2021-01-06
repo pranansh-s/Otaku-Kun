@@ -14,8 +14,8 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "electron": "^9.3.3",
-    "electron-packager": "^15.0.0"
+    "electron": "^10.1.5",
+    "electron-packager": "^15.2.0"
   },
   "scripts": {
     "start": "electron .",

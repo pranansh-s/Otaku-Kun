@@ -67,11 +67,11 @@ h1{
   transition: width 0.4s ease-out;
 }
 
-.iconR{
+#iconR{
   position: absolute;
   transition: 0.2s ease-in;
   top: 0px;
-  right: 0px;
+  right: 10px;
   z-index: 3;
   border-radius: 7px;
 
@@ -111,8 +111,109 @@ h1{
 
 .fa-search{
   position: relative;
-  top: 15%;
+  top: 5px;
   left: 28%;
   z-index: 5;
   color: white;
+}
+
+.dropdown{
+  position: relative;
+  float: right;
+  top: 5px;
+  left: -5px;
+  width: 10px;
+  z-index: 10;
+}
+
+.dropdown button{
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+#dropArrow{
+  position: absolute;
+  color: white;
+}
+
+.dropdown ul{
+  position: absolute;
+  top: 0px;
+  left: 25px;
+  display: none;
+  width: 100%;
+}
+
+.dropdown ul li{
+  z-index: 10;
+  position: relative;
+  background-color: #9c1aff;
+  left: -41px;
+  width: 81px;
+  height: 40px;
+  display: block;
+  padding: 5%;
+  list-style: none;
+  border-radius: 0;
+}
+
+.dropdown ul li a{
+  transition: none !important;
+  text-align: center;
+}
+
+.dropdown ul li:hover .dropdown ul li a:link{
+  font-size: 20px;
+  padding: 0px;
+}
+
+.dropdown ul li a:link{
+  font-size: 20px;
+  padding: 0px;
+  position: relative;
+  left: 20%;
+}
+
+.dropdown ul li:hover{
+  background-color: #3a0066;
+}
+
+.dropdown .active{
+  display: block;
+}
+
+#loader {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loader img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: loader 0.75s infinite ease-in-out;
+}
+
+@keyframes loader {
+  0% { opacity: 0%;}
+  50% { opacity: 100%;}
+  100% { opacity: 0%;}
+}
+
+#NF{
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
