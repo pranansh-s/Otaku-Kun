@@ -85,7 +85,7 @@ function anime(uri){
             var episodes = page('.watchpage ul').find('li');
             episodes.each((no, ele) => {
               var link_ep = page(ele).find('a').attr('href');
-              var name_ep = "Episode: " + (no + 1);
+              var name_ep = (no + 1);
 
               var newli = document.createElement('li');
               var ahref = document.createElement('a');
