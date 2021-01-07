@@ -1,8 +1,8 @@
 # Description
-Otaku Kun, uses basic web scraping and other modules on manga reading sites to compile and download your favourite manga readables quickly and easily into small and easy-to-use pdf files
+Otaku Kun, uses basic web scraping and other modules on manga and anime sites to compile and download your favourite manga readables and watch anime.
 
 # How to Use
-Just clone the repository or download the files to your desktop __(WINDOWS only)__ and double click the .exe file to open.
+Just clone the repository or download the files to your desktop __(WINDOWS only)__ Download 'Otaku-kun.exe' as a seprate file and put it in the same directory.
 After that you are ready to use the app.
 
 * Use the search bar to search for your favourite manga, if properly spelled you will be given a list of results to choose from.
