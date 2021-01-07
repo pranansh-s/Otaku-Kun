@@ -27,7 +27,7 @@ function scrape(event){
     s.style.transform = "translate(-50%, -3%)";
 
     sb.focus();
-    sb.style.width = "500px";
+    sb.style.width = "35vw";
 
     loading(true);
 
@@ -59,7 +59,7 @@ function manga(){
   request(Mbase_url+uri, (error, response, html) => {
     //Check search result (error and response)
     if(!error && response.statusCode == 200){
-      var $ = cheerio.load(html);
+      var $ = cheerio.load(html,  { ignoreWhitespace: true });
 
       //Get all results for search in a Node List
       var cards = $('.list-truyen-item-wrap');
@@ -103,7 +103,9 @@ function manga(){
         var details = document.createElement('span');
         details.id = 'details';
         newCard.appendChild(details);
-        details.innerText = "Views: " + $(el).find('span').text();
+        details.innerText += "Views: " + $(el).find('span').text();
+        details.appendChild(document.createElement('br'));
+        details.innerText += "Latest: " + $(el).find('a')[2].firstChild.data;
 
         //Add a pfp to the card
         var imgL = $(el).find('img').attr('src');
@@ -130,13 +132,15 @@ function manga(){
 
           var l = mainH.find('a').attr('href');
           request(l, (error, response, html) => {
-            page = cheerio.load(html);
+            page = cheerio.load(html,  { ignoreWhitespace: true });
             var list = page('.chapter-list');
             if(list.length == 0) list = page('.row-content-chapter');
 
+            var chap = 1;
             list.find('a').each((x, ele) => {
               var link_chap = page(ele).attr('href');
-              var name_chap = page(ele).text();
+              var name_chap = String(chap);
+              chap++;
 
               var newli = document.createElement('li');
               var ahref = document.createElement('a');
@@ -153,7 +157,7 @@ function manga(){
           });
         });
       });
-      loading(false);      
+      loading(false);
     }
   });
 }

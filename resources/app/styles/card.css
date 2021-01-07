@@ -2,7 +2,7 @@
 #res{
   position: relative;
   width: 100vw;
-  margin-top: 100px;  
+  margin-top: 100px;
   list-style: none;
 }
 
@@ -10,7 +10,7 @@
   margin: 20px;
   padding: 10px;
   width: 90vw;
-  height: 40vh;
+  height: 22vw;
   position: relative;
   border-radius: 7px;
   box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
@@ -71,15 +71,17 @@ span{
   width: 100%;
   font-family: 'Amatic SC', cursive;
 
-  left: 65vw;
+  left: 68vw;
   height: 35px;
   font-size: 2vw;
-  top: 30%;
+  top: 10%;
 }
 
 img{
   position: absolute;
   float: left;
+  top: 0.8vw;
+  left: 1.2vw;
   height: 93%;
   width: 16%;
 }

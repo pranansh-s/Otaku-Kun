@@ -67,6 +67,11 @@ h1{
   transition: width 0.4s ease-out;
 }
 
+#s-bar::placeholder{
+  color: rgba(200, 200, 200, 80);
+  text-shadow: none;
+}
+
 #iconR{
   position: absolute;
   transition: 0.2s ease-in;
@@ -78,20 +83,6 @@ h1{
   width: 60px;
   height: 46px;
   background-color: #9c1aff;
-}
-
-#s-bar::placeholder{
-  text-shadow: none;
-  color: white;
-}
-
-#s-bar:hover::placeholder {
-  color: grey;
-}
-
-#s-bar:hover{
-  text-shadow: none;
-  width: 500px;
 }
 
 .fa-cog{
@@ -120,7 +111,7 @@ h1{
 .dropdown{
   position: relative;
   float: right;
-  top: 5px;
+  top: 0px;
   left: -5px;
   width: 10px;
   z-index: 10;
@@ -135,6 +126,8 @@ h1{
 }
 
 #dropArrow{
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: #6c6c6c;
   position: absolute;
   color: white;
 }
@@ -142,7 +135,7 @@ h1{
 .dropdown ul{
   position: absolute;
   top: 0px;
-  left: 25px;
+  left: 35px;
   display: none;
   width: 100%;
 }
@@ -161,6 +154,12 @@ h1{
 }
 
 .dropdown ul li a{
+  top: 5px;
+  font-size: 15px;
+  font-family: "Text Me One";
+
+  text-decoration: none;
+  color: white;
   transition: none !important;
   text-align: center;
 }

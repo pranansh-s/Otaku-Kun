@@ -2,7 +2,6 @@ var cheerio = require('cheerio');
 var request = require('request');
 
 const Abase_url = "https://4anime.to/anime/?s=";
-const gogo = "https://4anime.to/";
 
 function anime(uri){
   //Strip input text to make url
@@ -11,7 +10,7 @@ function anime(uri){
   //Request a html page from link
   request(Abase_url + uri, (error, response, html) => {
     if(!error && response.statusCode == 200){
-      var $ = cheerio.load(html);
+      var $ = cheerio.load(html,  { ignoreWhitespace: true });
 
       var cards = $('#headerDIV_95').find('a');
       if(cards.length == 0){
@@ -45,11 +44,13 @@ function anime(uri){
         //Add a description to the card
         var l = $(el).attr('href');
         request(l, (error, response, html) => {
-          page = cheerio.load(html);
+          page = cheerio.load(html,  { ignoreWhitespace: true });
 
           var descr = page('#description-mob').text().substring(12);
-          descr.replace("READ MORE", "");
-          descr.replace("READ LESS", "");
+          if(page('#fullcontent').length != 0) descr = page('#fullcontent').text();
+          descr = descr.replace("READ LESS", " ");
+          descr = descr.replace("READ MORE", " ");
+
           var descrC = descr;
           if(descrC.length >= 340) descrC = descrC.substring(0, 340) + "...";
 
@@ -62,7 +63,24 @@ function anime(uri){
           newCard.appendChild(descrH);
           descrH.innerText = descrC;
           descrH.id = 'description';
+
+          //Add extra details
+          var details = document.createElement('span');
+          details.id = 'details';
+          newCard.appendChild(details);
+          var info = page('.detail').find('.data');
+          info.each((i, det) => {
+            if(i == 0) details.innerText += "Type: ";
+            if(i == 1) details.innerText += "Studio: ";
+            if(i == 2) details.innerText += "Release Date(JP): ";
+            if(i == 4) details.innerText += "Status: ";
+            if(i == 5) details.innerText += "Language: ";
+            details.innerText += page(det).text();
+            if(i != 2) details.appendChild(document.createElement('br'));
+            else details.innerText += ", ";
+          });
         });
+
 
         //Instance of link card
         newCard.addEventListener('click', () => {
@@ -72,7 +90,7 @@ function anime(uri){
           document.querySelector('body').style.overflow = "hidden";
 
           request(l, (error, response, html) => {
-            page = cheerio.load(html);
+            page = cheerio.load(html,  { ignoreWhitespace: true });
 
             //Add a description to the card
             var descr = page('#description-mob').text().substring(12);

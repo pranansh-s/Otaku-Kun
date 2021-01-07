@@ -1,5 +1,8 @@
 .parent-vid{
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
   background-color: white;
@@ -8,18 +11,49 @@
   display: none;
 }
 
+#next, #previous{
+  text-decoration: none;
+  color: #00d6ff;
+}
+
+#next:hover, #previous:hover{
+  color: #00677b;
+}
+
+#next{
+  position: absolute;
+  top: 92vh;
+  left: 88vw;
+}
+
+#next i{
+  position: absolute;
+  top: -1vh;
+  left: 3vw;
+}
+
+#previous i{
+  position: absolute;
+  top: -1vh;
+  left: -2.6vw;
+}
+
+#previous{
+  position: absolute;
+  top: 92vh;
+  left: 8vw;
+}
+
 #vid{
   position: absolute;
   height: 80%;
   width: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .fa-arrow-left{
-  position: relative;
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
   transition: 0.3s;
   margin: 2%;
   color: #00FF00;

@@ -52,7 +52,6 @@ function pdf(link, name){
 
           //Convert html to valid pdf file
           htPdf.create(html, config).toStream((err, stream) => {
-            console.log(err);
             stream.pipe(fs.createWriteStream(path.join(pathDownload, name.replace(/[<>:"/\|?*]/g,"") + '.pdf')));
             alert('Downloaded ' + name);
           });
