@@ -1,0 +1,218 @@
+body{
+  scroll-behavior: smooth;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: url('bg.png');
+
+  -webkit-user-select: none;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+}
+
+@keyframes myAnimation{
+  0%{
+    font-size: 300px;
+    opacity: 1;
+  }
+  100%{
+    font-size: 0px;
+    opacity: 0;
+    display: none;
+  }
+}
+
+h1{
+  position: absolute;
+  transform-origin: top;
+
+  font-size: 24vw;
+  width: 100%;
+
+  text-align: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #b4b4b4;
+
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+
+  color: white;
+  font-family: "Squada One";
+}
+
+
+.search{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 0.6s ease-in-out;
+}
+
+#s-bar{
+  box-shadow: 1px 1px 10px black;
+
+  color: transparent;
+  padding: 10px;
+  height: 45px;
+
+  text-transform: uppercase;
+  font-size: 18px;
+
+  border: none;
+  border-radius: 7px;
+
+  outline: none;
+  transition: width 0.4s ease-out;
+}
+
+#s-bar::placeholder{
+  color: rgba(200, 200, 200, 80);
+  text-shadow: none;
+}
+
+#iconR{
+  position: absolute;
+  transition: 0.2s ease-in;
+  top: 0px;
+  right: 10px;
+  z-index: 3;
+  border-radius: 7px;
+
+  width: 60px;
+  height: 46px;
+  background-color: #9c1aff;
+}
+
+.fa-cog{
+  z-index: 4;
+  color: white;
+  position: fixed;
+  margin: 1.6%;
+  text-shadow: 0px 2px 1px #000;
+
+  transition: 0.3s
+}
+
+.fa-cog:hover{
+  transform: rotate(90deg);
+  text-shadow: 2px 0px 1px #000;
+}
+
+.fa-search{
+  position: relative;
+  top: 5px;
+  left: 28%;
+  z-index: 5;
+  color: white;
+}
+
+.dropdown{
+  position: relative;
+  float: right;
+  top: 0px;
+  left: -5px;
+  width: 10px;
+  z-index: 10;
+}
+
+.dropdown button{
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+#dropArrow{
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: #6c6c6c;
+  position: absolute;
+  color: white;
+}
+
+.dropdown ul{
+  position: absolute;
+  top: 0px;
+  left: 35px;
+  display: none;
+  width: 100%;
+}
+
+.dropdown ul li{
+  z-index: 10;
+  position: relative;
+  background-color: #9c1aff;
+  left: -41px;
+  width: 81px;
+  height: 40px;
+  display: block;
+  padding: 5%;
+  list-style: none;
+  border-radius: 0;
+}
+
+.dropdown ul li a{
+  top: 5px;
+  font-size: 15px;
+  font-family: "Text Me One";
+
+  text-decoration: none;
+  color: white;
+  transition: none !important;
+  text-align: center;
+}
+
+.dropdown ul li:hover .dropdown ul li a:link{
+  font-size: 20px;
+  padding: 0px;
+}
+
+.dropdown ul li a:link{
+  font-size: 20px;
+  padding: 0px;
+  position: relative;
+  left: 20%;
+}
+
+.dropdown ul li:hover{
+  background-color: #3a0066;
+}
+
+.dropdown .active{
+  display: block;
+}
+
+#loader {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loader img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: loader 0.75s infinite ease-in-out;
+}
+
+@keyframes loader {
+  0% { opacity: 0%;}
+  50% { opacity: 100%;}
+  100% { opacity: 0%;}
+}
+
+#NF{
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
