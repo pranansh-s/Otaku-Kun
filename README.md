@@ -2,11 +2,14 @@
 Otaku Kun, uses basic web scraping and other modules on manga and anime sites to compile and download your favourite manga readables and watch anime.
 
 # How to Use
-Just clone the repository or download the files to your desktop __(WINDOWS only)__ Download 'Otaku-kun.exe' as a seprate file and put it in the same directory.
-After that you are ready to use the app.
+Just go to the Output folder and download the setup file. __(WINDOWS only)__
+__After installation run the .exe file in admininstrator mode__
 
-* Use the search bar to search for your favourite manga, if properly spelled you will be given a list of results to choose from.
-* After everything has loaded *(time varies for various internet connections)*, click on the card of the manga you want to download.
+PS: If you actually download the code (for some god forsaken reason) please remember to unzip "electron.rar" file at __node_modules\electron\dist__ before running scripts.
+
+* Use the search bar to search for your favourite anime/manga, if properly spelled you will be given a list of results to choose from.
+* If watching anime, click on the anime card and choose episode you want to watch.
+* If downloading manga, click on the card of the manga you want to download.
 * Then you can choose the required chapter to download and read offline when needed.
 * Click on the **cogwheel** icon on the top left to change the download directory of the pdfs.
 
@@ -26,7 +29,7 @@ There you go. As simple as that.
 * CSS
 * Javascript
 
-# Modules Used
+# Library/Frameworks Used
 
 * Node js
 * electron
@@ -36,5 +39,5 @@ There you go. As simple as that.
 * fs
 
 # Note
-There might be some glitches or unknown errors, *(as it was made on a weekend*).
+There might be some glitches or unknown errors you might encounter.
 if there are please report them to me at the given <a href = "mailto: prananshsingh@gmail.com" target="_blank">Gmail</a> to be updated
