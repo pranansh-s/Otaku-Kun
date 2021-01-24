@@ -1,5 +1,5 @@
 # Description
-Otaku Kun, uses basic web scraping and other modules on manga and anime sites to compile and download your favourite manga readables and watch anime.
+Otaku Kun, uses basic web scraping on manga and anime sites to compile and download your favourite manga readables and stream anime all at one place.
 
 # How to Use
 Just go to the Output folder and download the setup file. __(WINDOWS only)__
