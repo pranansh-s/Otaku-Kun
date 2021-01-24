@@ -7,10 +7,11 @@ function streamPage(link){
   request(link, (error, response, html) => {
     if(!error && response.statusCode == 200){
       const $ = cheerio.load(html);
-      var parent = $('source');
+      var parent = $('.mirror_source').prev().html().match(/\bhttps?:\/\/\S+/gi)[0];
+      parent = parent.substring(0, parent.length - 5);
 
       parentVid.style.display = "flex";
-      iframe.setAttribute('src', parent.attr('src'));
+      iframe.setAttribute('src', parent);
 
       nxt.setAttribute('href', $('.anipager-next').find('a').attr('href'));
       prev.setAttribute('href', $('.anipager-prev').find('a').attr('href'));

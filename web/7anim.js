@@ -1,5 +1,6 @@
 var cheerio = require('cheerio');
 var request = require('request');
+var requestPromise = require('request-promise');
 
 const Abase_url = "https://4anime.to/anime/?s=";
 
@@ -43,7 +44,7 @@ function anime(uri){
 
         //Add a description to the card
         var l = $(el).attr('href');
-        request(l, (error, response, html) => {
+        requestPromise(l, (error, response, html) => {
           page = cheerio.load(html,  { ignoreWhitespace: true });
 
           var descr = page('#description-mob').text().substring(12);
@@ -70,17 +71,16 @@ function anime(uri){
           newCard.appendChild(details);
           var info = page('.detail').find('.data');
           info.each((i, det) => {
-            if(i == 0) details.innerText += "Type: ";
-            if(i == 1) details.innerText += "Studio: ";
-            if(i == 2) details.innerText += "Release Date(JP): ";
-            if(i == 4) details.innerText += "Status: ";
-            if(i == 5) details.innerText += "Language: ";
-            details.innerText += page(det).text();
-            if(i != 2) details.appendChild(document.createElement('br'));
-            else details.innerText += ", ";
+            if(i == 0) details.innerText += "Type: " + page(det).text() + "\n";
+            if(i == 1) details.innerText += "Studio: " + page(det).text() + "\n";
+            if(i == 2) details.innerText += "Release Date(JP): " + page(det).text() + ",";
+            if(i == 3) details.innerText += " " + page(det).text() + "\n";
+            if(i == 4) details.innerText += "Status: " + page(det).text() + "\n";
+            if(i == 5) details.innerText += "Language: " + page(det).text() + "\n";
           });
+        }).then(() => {
+          setTimeout(2000, loading(false));
         });
-
 
         //Instance of link card
         newCard.addEventListener('click', () => {
@@ -123,6 +123,5 @@ function anime(uri){
         });
       });
     }
-    loading(false);
   });
 }

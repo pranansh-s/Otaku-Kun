@@ -1,5 +1,6 @@
 var cheerio = require('cheerio');
 var request = require('request');
+var requestPromise = require('request-promise');
 
 var icons = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png", "12.png"];
 
@@ -8,9 +9,13 @@ const Mbase_url = "http://manga-reader.fun/search?q=";
 function loading(show){
   if(show){
     document.getElementById("hide").id = "loader";
+    document.getElementById("res").style.opacity = "0%";
     document.loadIcon.src = "./loadIcons/" + icons[Math.floor(Math.random() * (icons.length))];
   }
-  else document.getElementById("loader").id = "hide";
+  else{
+    document.getElementById("loader").id = "hide";
+    document.getElementById("res").style.opacity = "100%";
+  }
 }
 
 //Check for legitimate search
@@ -56,7 +61,7 @@ function manga(){
   var uri = sb.value.replace(/ /g, '+');
 
   //Request a html page from link
-  request(Mbase_url+uri, (error, response, html) => {
+  requestPromise(Mbase_url+uri, (error, response, html) => {
     //Check search result (error and response)
     if(!error && response.statusCode == 200){
       var $ = cheerio.load(html,  { ignoreWhitespace: true });
@@ -157,8 +162,9 @@ function manga(){
           });
         });
       });
-      loading(false);
     }
+  }).then(() => {
+    setTimeout(2000, loading(false));
   });
 }
 

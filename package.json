@@ -11,7 +11,8 @@
     "fs": "0.0.1-security",
     "html-pdf": "^2.2.0",
     "phantomjs-prebuilt": "^2.1.16",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
   },
   "devDependencies": {
     "electron": "^10.1.5",
