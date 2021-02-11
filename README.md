@@ -5,8 +5,6 @@ Otaku Kun, uses basic web scraping on manga and anime sites to compile and downl
 Just go to the Output folder and download the setup file. __(WINDOWS only)__
 __After installation run the .exe file in admininstrator mode__
 
-PS: If you actually download the code (for some god forsaken reason) please remember to unzip "electron.rar" file at __node_modules\electron\dist__ before running scripts.
-
 * Use the search bar to search for your favourite anime/manga, if properly spelled you will be given a list of results to choose from.
 * If watching anime, click on the anime card and choose episode you want to watch.
 * If downloading manga, click on the card of the manga you want to download.
