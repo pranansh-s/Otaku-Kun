@@ -1,3 +1,5 @@
+<img src="assets/icons/win/icon.ico" alt="Icon" width=100px>
+
 # Description
 Otaku Kun, uses basic web scraping on manga and anime sites to compile and download your favourite manga readables and stream anime all at one place.
 
